@@ -13,6 +13,9 @@ mongoConfig();
 
 // Routes
 app.use("/", router);
+app.get("/", (req, res) => {
+  res.send("Oreby Backend");
+});
 app.listen(Port, () => {
   console.log("server start");
 });

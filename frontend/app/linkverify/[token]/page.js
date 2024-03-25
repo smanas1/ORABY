@@ -6,6 +6,7 @@ import { useParams } from "next/navigation";
 import { useEffect } from "react";
 import { useRouter } from "next/navigation";
 import ResendEmail from "@/Components/ResendEmail";
+import { Button } from "antd";
 const LinkVerify = () => {
   const router = useRouter();
   const params = useParams();
@@ -63,6 +64,14 @@ const LinkVerify = () => {
       <h1 className="text-4xl mb-6">Email verfication </h1>
       <div>
         <ResendEmail />
+        <Button
+          className="ms-5"
+          onClick={() => router.push("/login")}
+          type="primary"
+          ghost
+        >
+          Go To Login
+        </Button>
       </div>
     </div>
   );

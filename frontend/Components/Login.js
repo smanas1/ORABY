@@ -4,6 +4,7 @@ import axios from "axios";
 import { ToastContainer, toast } from "react-toastify";
 import { Button, Checkbox, Form, Input } from "antd";
 import { useRouter } from "next/navigation";
+import ForgetPass from "./ForgetPass";
 
 const Login = () => {
   const router = useRouter();
@@ -59,7 +60,7 @@ const Login = () => {
       }}
       style={{
         maxWidth: 600,
-        minWidth: 500
+        minWidth: 500,
       }}
       initialValues={{
         remember: true,
@@ -112,9 +113,12 @@ const Login = () => {
           span: 16,
         }}
       >
-        <Button type="primary" ghost htmlType="submit">
-          Login
-        </Button>
+        <div className="flex justify-between">
+          <Button type="primary" ghost htmlType="submit">
+            Login
+          </Button>
+          <ForgetPass />
+        </div>
       </Form.Item>
     </Form>
   );

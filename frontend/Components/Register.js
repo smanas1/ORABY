@@ -3,14 +3,13 @@ import React, { useState } from "react";
 import axios from "axios";
 import { Button, Checkbox, Form, Input } from "antd";
 import { useRouter } from "next/navigation";
-import 'react-toastify/dist/ReactToastify.css';
+import "react-toastify/dist/ReactToastify.css";
 import { useDispatch } from "react-redux";
 import { getEmail } from "@/app/redux/emailSlice";
-import { ToastContainer, toast } from 'react-toastify';
+import { ToastContainer, toast } from "react-toastify";
 import ResendEmail from "./ResendEmail";
 const Register = () => {
-
-  const dispatch = useDispatch()
+  const dispatch = useDispatch();
   const router = useRouter();
   const onFinish = (values) => {
     console.log("Success:", values);
@@ -30,7 +29,7 @@ const Register = () => {
       )
       .then((response) => {
         console.log(response);
-        dispatch(getEmail(response.data.email))
+        dispatch(getEmail(response.data.email));
         toast.success("Please Verify Your Email", {
           position: "top-right",
           autoClose: 5000,
@@ -41,7 +40,6 @@ const Register = () => {
           progress: undefined,
           theme: "light",
         });
-
       })
       .catch((error) => {
         console.log(error);
@@ -73,7 +71,6 @@ const Register = () => {
       style={{
         maxWidth: 600,
         minWidth: 500,
-
       }}
       initialValues={{
         remember: true,
@@ -142,6 +139,9 @@ const Register = () => {
         <div className="flex justify-between">
           <Button type="primary" ghost htmlType="submit">
             Register
+          </Button>
+          <Button onClick={() => router.push("/login")} type="primary" ghost>
+            Login Page
           </Button>
           <ResendEmail />
         </div>

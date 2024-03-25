@@ -39,7 +39,7 @@ const registerController = async (req, res) => {
     }
 
     if (existingUser.length > 0) {
-      return res.status(401).send("usser already exists");
+      return res.status(401).send("This Email Already Exists");
     } else {
       bcrypt.hash(password, 10, async function (err, hash) {
         let otp = otpGenerator.generate(6, {

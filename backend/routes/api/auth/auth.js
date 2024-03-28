@@ -7,11 +7,12 @@ const linkVerify = require("../../../controllers/linkVerify");
 const resendEmail = require("../../../controllers/resendEmail");
 const forgetPass = require("../../../controllers/forgetPass");
 const newPassword = require("../../../controllers/newPassword");
+const emailVerifyCheck = require("../../../middlewares/emailVerifyCheck");
 
 const auth = express.Router();
 
 auth.post("/register", secureApi, registerController);
-auth.post("/login", loginController);
+auth.post("/login", emailVerifyCheck, loginController);
 auth.post("/otpverify", otpVerify);
 auth.post("/resendemail", resendEmail);
 auth.post("/linkverify", linkVerify);

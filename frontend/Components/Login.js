@@ -44,6 +44,16 @@ const Login = () => {
       })
       .catch((error) => {
         console.log(error);
+        toast.error(error.response.data, {
+          position: "top-right",
+          autoClose: 5000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "light",
+        });
       });
   };
   const onFinishFailed = (errorInfo) => {

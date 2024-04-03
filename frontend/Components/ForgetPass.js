@@ -57,7 +57,7 @@ const ForgetPass = () => {
   };
   return (
     <>
-      <Button type="primary" ghost onClick={showModal}>
+      <Button type="link" onClick={showModal}>
         Forget Password
       </Button>
       <Modal

@@ -8,6 +8,7 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 const Port = process.env.PORT || 8000;
+app.use(express.static("images"));
 // mongodb config
 mongoConfig();
 

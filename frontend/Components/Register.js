@@ -140,7 +140,7 @@ const Register = () => {
           <Button type="primary" ghost htmlType="submit">
             Register
           </Button>
-          <Button onClick={() => router.push("/login")} type="primary" ghost>
+          <Button onClick={() => router.push("/login")} type="link" ghost>
             Login Page
           </Button>
           <ResendEmail />

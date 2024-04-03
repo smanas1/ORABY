@@ -56,7 +56,7 @@ const ResendEmail = () => {
   };
   return (
     <>
-      <Button type="primary" ghost onClick={showModal}>
+      <Button type="link" ghost onClick={showModal}>
         Resend Email
       </Button>
       <Modal

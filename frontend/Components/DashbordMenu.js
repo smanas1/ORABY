@@ -20,30 +20,23 @@ const items = [
     getItem("Add User", "1"),
     getItem("View User", "2"),
   ]),
-  getItem("Navigation Two", "sub2", <AppstoreOutlined />, [
-    getItem("Option 5", "5"),
-    getItem("Option 6", "6"),
-    getItem("Submenu", "sub3", null, [
-      getItem("Option 7", "7"),
-      getItem("Option 8", "8"),
-    ]),
+  getItem("Product", "sub2", <AppstoreOutlined />, [
+    getItem("Add Product", "3"),
+    getItem("View Product", "4"),
   ]),
   {
     type: "divider",
   },
-  getItem("Navigation Three", "sub4", <SettingOutlined />, [
-    getItem("Option 9", "9"),
-    getItem("Option 10", "10"),
-    getItem("Option 11", "11"),
-    getItem("Option 12", "12"),
+  getItem("Category", "sub3", <AppstoreOutlined />, [
+    getItem("Add Category", "5"),
+    getItem("View Category", "6"),
+    getItem("Add Subcategory", "7"),
+    getItem("View Subcategory", "8"),
   ]),
-  getItem(
-    "Group",
-    "grp",
-    null,
-    [getItem("Option 13", "13"), getItem("Option 14", "14")],
-    "group"
-  ),
+  getItem("Discount", "sub4", <AppstoreOutlined />, [
+    getItem("Add Discount", "9"),
+    getItem("View Discount", "10"),
+  ]),
 ];
 const DashbordMenu = () => {
   const onClick = (e) => {

@@ -1,10 +1,9 @@
-import DashbordMenu from "@/Components/DashbordMenu";
 import React from "react";
 
 const Dashbord = () => {
   return (
     <div>
-      <DashbordMenu />
+      <h1>Dashbord Home</h1>
     </div>
   );
 };

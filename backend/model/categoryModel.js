@@ -4,11 +4,11 @@ const categorySchema = mongoose.Schema({
   category: {
     type: String,
     required: true,
-    status: {
-      type: String,
-      enum: ["waiting", "aproved", "rejected"],
-      default: "waiting",
-    },
+  },
+  status: {
+    type: "string",
+    enum: ["waiting", "aproved", "rejected"],
+    default: "waiting",
   },
 });
 

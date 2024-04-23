@@ -6,6 +6,7 @@ import {
   SettingOutlined,
 } from "@ant-design/icons";
 import { Menu } from "antd";
+import { useRouter } from "next/navigation";
 function getItem(label, key, icon, children, type) {
   return {
     key,
@@ -28,7 +29,7 @@ const items = [
     type: "divider",
   },
   getItem("Category", "sub3", <AppstoreOutlined />, [
-    getItem("Add Category", "5"),
+    getItem("Add Category", "/dashbord/addcategory"),
     getItem("View Category", "6"),
     getItem("Add Subcategory", "7"),
     getItem("View Subcategory", "8"),
@@ -39,8 +40,10 @@ const items = [
   ]),
 ];
 const DashbordMenu = () => {
+  const router = useRouter();
   const onClick = (e) => {
     console.log("click ", e);
+    router.push(e.key);
   };
   return (
     <Menu

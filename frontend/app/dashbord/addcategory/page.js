@@ -1,8 +1,41 @@
 "use client";
 import React from "react";
+import "react-toastify/dist/ReactToastify.css";
 import { Button, Checkbox, Form, Input } from "antd";
+import axios from "axios";
+import { ToastContainer, toast } from "react-toastify";
 const onFinish = (values) => {
   console.log("Success:", values);
+  axios
+    .post("http://localhost:8000/api/v1/category/addcategory", {
+      category: values.category.toLowerCase(),
+    })
+    .then((response) => {
+      console.log(response);
+      toast.success(response.data, {
+        position: "top-right",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+      });
+    })
+    .catch((err) => {
+      console.log(err);
+      toast.error(err.response.data, {
+        position: "top-right",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+      });
+    });
 };
 const onFinishFailed = (errorInfo) => {
   console.log("Failed:", errorInfo);
@@ -10,6 +43,7 @@ const onFinishFailed = (errorInfo) => {
 const AddCategory = () => {
   return (
     <div className="  mt-6">
+      <ToastContainer />
       <Form
         name="basic"
         labelCol={{

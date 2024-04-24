@@ -7,7 +7,7 @@ import { ToastContainer, toast } from "react-toastify";
 const onFinish = (values) => {
   console.log("Success:", values);
   axios
-    .post("http://localhost:8000/api/v1/category/addcategory", {
+    .post("http://localhost:8000/api/v1/product/addcategory", {
       category: values.category.toLowerCase(),
     })
     .then((response) => {

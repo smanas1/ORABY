@@ -1,7 +1,7 @@
-const subCategoryModel = require("../model/subCategoryModel");
+const categoryModel = require("../model/categoryModel");
 
 const viewAllCategory = async (req, res) => {
-  const data = await subCategoryModel.find().populate("categoryid");
+  const data = await categoryModel.find()
   res.send(data);
 };
 module.exports = viewAllCategory;

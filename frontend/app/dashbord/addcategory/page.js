@@ -64,7 +64,7 @@ const AddCategory = () => {
         autoComplete="off"
       >
         <Form.Item
-          label="Category"
+          label="Add Category"
           name="category"
           rules={[
             {

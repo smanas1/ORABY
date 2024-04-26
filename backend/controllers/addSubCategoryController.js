@@ -4,6 +4,14 @@ const addSubCategoryController = async (req, res) => {
   try {
     const { subcategory, categoryid } = req.body;
 
+    if(!subcategory){
+      return res.status(401).send("Please Enter Sub Category Name");
+
+    }
+    if(!categoryid){
+      return res.status(401).send("Please Select a Category");
+    }
+
     const existingSubCategory = await subCategoryModel.find({
       subcategory: subcategory.toLowerCase(),
     });

@@ -30,9 +30,9 @@ const items = [
   },
   getItem("Category", "sub3", <AppstoreOutlined />, [
     getItem("Add Category", "/dashbord/addcategory"),
-    getItem("View Category", "6"),
-    getItem("Add Subcategory", "7"),
-    getItem("View Subcategory", "8"),
+    getItem("View Category", "/dashbord/viewcategory"),
+    getItem("Add Subcategory", "/dashbord/addsubcategory"),
+    getItem("View Subcategory", "/dashbord/viewsubcategory"),
   ]),
   getItem("Discount", "sub4", <AppstoreOutlined />, [
     getItem("Add Discount", "9"),

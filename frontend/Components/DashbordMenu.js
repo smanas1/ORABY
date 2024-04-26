@@ -3,7 +3,8 @@ import React from "react";
 import {
   AppstoreOutlined,
   MailOutlined,
-  SettingOutlined,
+  FireOutlined,
+  AlignLeftOutlined,
 } from "@ant-design/icons";
 import { Menu } from "antd";
 import { useRouter } from "next/navigation";
@@ -28,13 +29,13 @@ const items = [
   {
     type: "divider",
   },
-  getItem("Category", "sub3", <AppstoreOutlined />, [
+  getItem("Category", "sub3", <AlignLeftOutlined />, [
     getItem("Add Category", "/dashbord/addcategory"),
     getItem("View Category", "/dashbord/viewcategory"),
     getItem("Add Subcategory", "/dashbord/addsubcategory"),
     getItem("View Subcategory", "/dashbord/viewsubcategory"),
   ]),
-  getItem("Discount", "sub4", <AppstoreOutlined />, [
+  getItem("Discount", "sub4", <FireOutlined />, [
     getItem("Add Discount", "9"),
     getItem("View Discount", "10"),
   ]),

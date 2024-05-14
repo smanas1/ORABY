@@ -1,8 +1,8 @@
 const secureApi = (req, res, next) => {
-  if (req.headers.key == 1111) {
+  if (req.headers.key == process.env.API_KEY) {
     next();
   } else {
-    res.status(401).send("api is not assessable");
+    res.status(401).send("Api is not Assessable");
   }
 };
 

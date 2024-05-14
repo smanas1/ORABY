@@ -1,5 +1,6 @@
 const userModel = require("../model/userModel");
 const bcrypt = require("bcrypt");
+var jwt = require("jsonwebtoken");
 const loginController = async (req, res) => {
   try {
     const { email, password } = req.body;
@@ -8,7 +9,14 @@ const loginController = async (req, res) => {
       bcrypt.compare(password, user.password, async function (err, result) {
         try {
           if (result == true) {
-            res.send("Login success");
+            var token = jwt.sign({ email: user.email }, process.env.JWT_KEY);
+            res.send({
+              message: "Login success",
+              email: user.email,
+              role: user.role,
+              name: user.name,
+              token: token,
+            });
           } else {
             res.send("Invalid Password");
           }

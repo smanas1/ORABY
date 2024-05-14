@@ -5,8 +5,11 @@ import { ToastContainer, toast } from "react-toastify";
 import { Button, Checkbox, Form, Input } from "antd";
 import { useRouter } from "next/navigation";
 import ForgetPass from "./ForgetPass";
+import { useDispatch } from "react-redux";
+import { activeUser, getuser } from "@/app/redux/userSlice";
 
 const Login = () => {
+  const dispatch = useDispatch();
   const router = useRouter();
   const onFinish = (values) => {
     console.log("Success:", values);
@@ -17,7 +20,9 @@ const Login = () => {
       })
       .then((res) => {
         console.log(res);
-        if (res.data == "Login success") {
+        localStorage.setItem("user", JSON.stringify(res.data));
+        dispatch(activeUser(res.data));
+        if (res.data.message == "Login success") {
           toast.success("Login success", {
             position: "top-right",
             autoClose: 5000,
@@ -28,7 +33,7 @@ const Login = () => {
             progress: undefined,
             theme: "light",
           });
-          router.push("/");
+          router.push("/dashbord");
         } else {
           toast.error(res.data, {
             position: "top-right",

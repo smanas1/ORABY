@@ -30,6 +30,7 @@ const Register = () => {
       .then((response) => {
         console.log(response);
         dispatch(getEmail(response.data.email));
+        
         toast.success("Please Verify Your Email", {
           position: "top-right",
           autoClose: 5000,

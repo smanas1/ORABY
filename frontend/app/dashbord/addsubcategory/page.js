@@ -58,6 +58,7 @@ const AddSubCategory = () => {
   };
   const onChange = (value) => {
     setCategoryId(value);
+    console.log(value);
   };
   useEffect(() => {
     axios

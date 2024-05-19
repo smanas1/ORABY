@@ -24,7 +24,7 @@ const items = [
   ]),
   getItem("Product", "sub2", <AppstoreOutlined />, [
     getItem("Add Product", "/dashbord/addproduct"),
-    getItem("View Product", "4"),
+    getItem("View Product", "/dashbord/allproduct"),
   ]),
   {
     type: "divider",

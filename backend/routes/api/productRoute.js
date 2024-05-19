@@ -7,6 +7,7 @@ const secureApi = require("../../middlewares/secureApi");
 const tokenVerify = require("../../middlewares/tokenVerify");
 const upload = require("../../middlewares/multer");
 const addProductController = require("../../controllers/addproductController");
+const viewAllProduct = require("../../controllers/viewAllProduct");
 
 const router = express.Router();
 
@@ -15,5 +16,6 @@ router.post("/addsubcategory", addSubCategoryController);
 router.post("/addproduct", upload.single("image"), addProductController);
 router.get("/allsubcategory", viewAllSubCategory);
 router.get("/allcategory", viewAllCategory);
+router.get("/viewallproduct", viewAllProduct);
 
 module.exports = router;

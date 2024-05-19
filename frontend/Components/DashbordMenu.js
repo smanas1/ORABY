@@ -23,7 +23,7 @@ const items = [
     getItem("View User", "2"),
   ]),
   getItem("Product", "sub2", <AppstoreOutlined />, [
-    getItem("Add Product", "3"),
+    getItem("Add Product", "/dashbord/addproduct"),
     getItem("View Product", "4"),
   ]),
   {

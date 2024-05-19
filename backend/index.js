@@ -14,6 +14,7 @@ mongoConfig();
 
 // Routes
 app.use("/", router);
+app.use("/uploads", express.static("uploads"));
 app.get("/", (req, res) => {
   res.send("Oreby Backend");
 });

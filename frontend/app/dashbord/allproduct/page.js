@@ -22,6 +22,15 @@ const columns = [
       </Space>
     ),
   },
+  {
+    title: "Description",
+    key: "des",
+    render: (_, record) => (
+      <Space size="middle">
+        <div dangerouslySetInnerHTML={{ __html: record.des }}></div>
+      </Space>
+    ),
+  },
 ];
 
 const AllProduct = () => {
@@ -33,10 +42,24 @@ const AllProduct = () => {
         console.log(res.data);
         const data = [];
         res.data.map((item) => {
+          const oembedRegex = /<oembed[^>]*>/g;
+          const oembedMatch = item.des?.match(oembedRegex);
+          if (oembedMatch) {
+            const oembedUrl = oembedMatch[0].match(/url="([^"]*)"/)[1];
+
+            const iframeElement = `<iframe src="https://www.youtube.com/embed/${
+              oembedUrl.includes("watch")
+                ? oembedUrl.split("v=").pop()
+                : oembedUrl.split("/").pop()
+            }" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>`;
+            item.des = item.des?.replace(oembedRegex, iframeElement);
+          }
+
           data.push({
             key: item._id,
             name: item.name,
             image: item.image,
+            des: item.des,
           });
         });
         console.log(data);

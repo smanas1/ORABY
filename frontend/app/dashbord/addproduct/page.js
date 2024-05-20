@@ -2,8 +2,18 @@
 import React, { useEffect, useState } from "react";
 import "react-toastify/dist/ReactToastify.css";
 import { Button, Form, Input } from "antd";
+
+import dynamic from "next/dynamic";
 import axios from "axios";
 import { ToastContainer, toast } from "react-toastify";
+import { useSelector } from "react-redux";
+
+const CustomEditor = dynamic(
+  () => {
+    return import("@/Components/custom-editor");
+  },
+  { ssr: false }
+);
 
 // Add Sub Category
 
@@ -12,7 +22,9 @@ const onFinishFailed = (errorInfo) => {
 };
 
 const AddProduct = () => {
+  const description = useSelector((state) => state.des.des);
   const [image, setImage] = useState({});
+  console.log(description);
 
   const handlefile = (e) => {
     setImage(e.target.files[0]);
@@ -24,6 +36,7 @@ const AddProduct = () => {
         "http://localhost:8000/api/v1/product/addproduct",
         {
           name: values.name,
+          des: description,
           image: image,
         },
         {
@@ -60,26 +73,6 @@ const AddProduct = () => {
       });
   };
 
-  useEffect(() => {
-    axios
-      .get("http://localhost:8000/api/v1/product/allcategory")
-      .then((res) => {
-        const data = [];
-        res.data.map((item) => {
-          data.push({
-            value: item._id,
-            label: item.category,
-            className: "capitalize",
-          });
-        });
-
-        setCategory(data);
-      })
-      .catch((err) => {
-        console.log(err);
-      });
-  }, []);
-
   return (
     <div className="  mt-6">
       <ToastContainer />
@@ -114,6 +107,10 @@ const AddProduct = () => {
         >
           <Input />
         </Form.Item>
+        <CustomEditor initialData="" />
+        <br />
+        <br />
+        <br />
         <input
           onChange={handlefile}
           type="file"

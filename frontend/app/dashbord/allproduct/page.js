@@ -1,6 +1,6 @@
 "use client";
 import React, { useEffect, useState } from "react";
-import { Space, Table, Tag } from "antd";
+import { Space, Table } from "antd";
 import axios from "axios";
 const columns = [
   {

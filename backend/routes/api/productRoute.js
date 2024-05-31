@@ -10,6 +10,7 @@ const addProductController = require("../../controllers/addproductController");
 const viewAllProduct = require("../../controllers/viewAllProduct");
 const aproveCategoryController = require("../../controllers/aproveCategoryController");
 const categoryDeleteController = require("../../controllers/categoryDeleteController");
+const updateCategoryController = require("../../controllers/updateCategoryController");
 
 const router = express.Router();
 
@@ -18,6 +19,7 @@ router.post("/addsubcategory", addSubCategoryController);
 router.post("/addproduct", upload.single("image"), addProductController);
 router.post("/aprovecategory", aproveCategoryController);
 router.delete("/deletecategory/:id", categoryDeleteController);
+router.post("/updatecategory", updateCategoryController);
 
 router.get("/allsubcategory", viewAllSubCategory);
 router.get("/allcategory", viewAllCategory);

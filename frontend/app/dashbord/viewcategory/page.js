@@ -1,4 +1,5 @@
 "use client";
+import CategoryEditModal from "@/Components/CategoryEditModal";
 import { Button, Table } from "antd";
 import axios from "axios";
 import React, { useEffect, useState } from "react";
@@ -80,6 +81,11 @@ const ViewCategory = () => {
           <Button className="ml-3" onClick={() => handleDelete(record)}>
             Delete
           </Button>
+          <CategoryEditModal
+            values={record}
+            realtime={realtime}
+            setTealtime={setTealtime}
+          />
         </>
       ),
     },
